@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  my-ubuntu-os-01-unlimited-access:
+    image: registry.gitlab.com/chanwit.kepha/my-ubuntu-os
+    container_name: my-ubuntu-os-01-unlimited-access
+    tty: true
+    privileged: true
+    network_mode: host

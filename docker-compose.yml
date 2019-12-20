@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  my-ubuntu-os-01:
+    image: registry.gitlab.com/chanwit.kepha/my-ubuntu-os
+    container_name: my-ubuntu-os-01
+    tty: true
+    networks:
+      my-ubuntu-network:
+        ipv4_address: 172.22.0.2
+
+
+#  my-ubuntu-os-02:
+#    image: registry.gitlab.com/chanwit.kepha/my-ubuntu-os
+#    container_name: my-ubuntu-os-02
+#    tty: true
+#    networks:
+#      my-ubuntu-network:
+#        ipv4_address: 172.22.0.3
+
+networks:
+  my-ubuntu-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.22.0.0/16
