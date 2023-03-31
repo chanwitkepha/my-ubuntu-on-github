@@ -1,5 +1,5 @@
 # How to run
-docker-compose build
+docker-compose build<br>
 docker-compose up -d
 
 # How to enter Ubuntu docker container
