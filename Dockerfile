@@ -1,10 +1,9 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 MAINTAINER chanwit.kepha@gmail.com
 
 SHELL ["/bin/bash", "-c"] 
 
-COPY sources.list /etc/apt/sources.list
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y apt-utils software-properties-common sudo wget vim zip unzip traceroute iputils-ping net-tools gcc+ cmake iptraf-ng nmap git-core openssh-server lsb-release curl locales 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get dist-upgrade -y && apt-get install -y apt-utils software-properties-common sudo wget vim zip unzip traceroute iputils-ping net-tools gcc+ cmake iptraf-ng nmap git-core openssh-server lsb-release curl locales 
 
 #RUN add-apt-repository ppa:longsleep/golang-backports
 #RUN apt-get update && apt-get install -y golang-go
@@ -17,4 +16,4 @@ ENV HOME=/root
 USER root
 WORKDIR $HOME
 
-CMD ["/sbin/init"] 
+#CMD ["/sbin/init"] 

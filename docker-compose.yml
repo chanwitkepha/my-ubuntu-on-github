@@ -1,13 +1,18 @@
-version: '3'
+version: '3.5'
 
 services:
   my-ubuntu-os-01:
-    image: registry.gitlab.com/chanwit.kepha/my-ubuntu-os
+    build: .
+    image: my-ubuntu-os
     container_name: my-ubuntu-os-01
+    environment:
+    - "TZ=Asia/Bangkok"
     tty: true
+    volumes:
+    - ./data:/data
     networks:
       my-ubuntu-network:
-        ipv4_address: 172.22.0.2
+        ipv4_address: 10.1.254.2
 
 
 #  my-ubuntu-os-02:
@@ -24,4 +29,4 @@ networks:
     ipam:
       driver: default
       config:
-      - subnet: 172.22.0.0/16
+      - subnet: 10.1.254.0/24
